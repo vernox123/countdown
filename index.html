@@ -3,92 +3,519 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iPhone 13 Giveaway Countdown</title>
+  <title>🎁 iPhone 15 Pro Max Giveaway - Limited Time!</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    body {
-      background-color: #ff0000;
-      font-family: Arial, Helvetica, sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      color: #f0f8ff;
+      box-sizing: border-box;
     }
 
-    .countdown-container {
-      text-align: center;
-      margin: 50px auto;
-      max-width: 800px;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      min-height: 100vh;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    .countdown-container h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .countdown-container p {
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-
-    .countdown {
-      font-size: 2.5rem;
+    .giveaway-badge {
+      background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+      padding: 10px 25px;
+      border-radius: 50px;
       font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+      animation: pulse 2s ease-in-out infinite;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    img {
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .main-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff, #f0f8ff, #e6f3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      text-align: center;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .phone-showcase {
+      position: relative;
+      margin: 40px 0;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotateY(0deg); }
+      50% { transform: translateY(-20px) rotateY(5deg); }
+    }
+
+    .phone-image {
+      width: 300px;
+      height: 400px;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      border-radius: 30px;
+      position: relative;
+      box-shadow: 
+        0 0 0 3px #333,
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 100px rgba(123, 104, 238, 0.3);
+      overflow: hidden;
+    }
+
+    .phone-screen {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      animation: screenGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes screenGlow {
+      0%, 100% { box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1); }
+      50% { box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.3); }
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 25px;
+      background: #000;
+      border-radius: 15px;
+    }
+
+    .countdown-section {
+      margin: 50px 0;
+      text-align: center;
+    }
+
+    .countdown-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .countdown-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 25px 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      animation: countdownPulse 2s ease-in-out infinite;
+    }
+
+    .countdown-item:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes countdownPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .countdown-number {
+      font-size: 2.5rem;
+      font-weight: 900;
       display: block;
-      width: 50%;
-      max-width: 400px;
-      height: auto;
-      margin: 30px auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      margin-bottom: 5px;
+      background: linear-gradient(135deg, #ffd93d, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .countdown-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.8;
+      font-weight: 600;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin: 50px 0;
+      max-width: 800px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #ffd93d;
+    }
+
+    .feature-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-description {
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .cta-section {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+      border: none;
+      padding: 18px 40px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+      animation: ctaGlow 3s ease-in-out infinite;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+    }
+
+    @keyframes ctaGlow {
+      0%, 100% { box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4); }
+      50% { box-shadow: 0 10px 30px rgba(255, 107, 107, 0.7), 0 0 50px rgba(255, 107, 107, 0.3); }
+    }
+
+    .giveaway-ended {
+      font-size: 3rem;
+      text-align: center;
+      animation: celebration 1s ease-in-out infinite;
+    }
+
+    @keyframes celebration {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      25% { transform: scale(1.1) rotate(2deg); }
+      75% { transform: scale(1.1) rotate(-2deg); }
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      z-index: 1000;
+      animation: confettiFall 3s linear infinite;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(-100vh) rotateZ(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotateZ(720deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 10px; }
+      .phone-image { width: 250px; height: 330px; }
+      .countdown-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+      .countdown-number { font-size: 2rem; }
+      .features-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <img src="./download (1).jpeg" alt="iPhone Giveaway" />
+  <div class="stars" id="stars"></div>
+  
+  <div class="container">
+    <div class="giveaway-badge">
+      <i class="fas fa-gift"></i> Limited Time Giveaway
+    </div>
 
-  <div class="countdown-container">
-    <h1>iPhone 13 Giveaway Countdown</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minus
-      cum velit facere quibusdam voluptas natus perspiciatis eveniet veritatis
-      rerum? Dolores fugiat laudantium accusantium, molestiae tempora non
-      distinctio architecto repellat quod vero placeat sed harum id iure
-      doloribus quo ipsa nulla soluta porro consequatur illum. Quos, voluptate
-      fugit. Mollitia, perspiciatis incidunt cumque tenetur earum nihil
-      voluptatum natus quia rem culpa saepe temporibus odit veritatis, corporis
-      pariatur, architecto quaerat? Quod, animi.
+    <h1 class="main-title">Win the Latest iPhone 15 Pro Max!</h1>
+    
+    <p class="subtitle">
+      🌟 Don't miss your chance to win the most advanced iPhone ever created! 
+      Featuring the revolutionary A17 Pro chip, titanium design, and professional camera system.
     </p>
-    <div class="countdown" id="countdown"></div>
+
+    <div class="phone-showcase">
+      <div class="phone-image">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div>
+            <i class="fab fa-apple" style="font-size: 3rem; opacity: 0.7;"></i>
+            <div style="margin-top: 10px; font-size: 1rem;">iPhone 15 Pro Max</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="countdown-section">
+      <h2 class="countdown-title">⏰ Giveaway Ends In:</h2>
+      <div class="countdown-grid" id="countdown-grid">
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="seconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-camera"></i>
+        </div>
+        <h3 class="feature-title">Pro Camera System</h3>
+        <p class="feature-description">48MP main camera with 5x telephoto zoom and advanced computational photography</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-microchip"></i>
+        </div>
+        <h3 class="feature-title">A17 Pro Chip</h3>
+        <p class="feature-description">The most powerful chip in a smartphone with console-quality gaming performance</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="feature-title">Titanium Build</h3>
+        <p class="feature-description">Aerospace-grade titanium design that's incredibly strong yet lightweight</p>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <button class="cta-button" onclick="enterGiveaway()">
+        <i class="fas fa-star"></i> Enter Giveaway Now
+      </button>
+      <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">
+        * No purchase necessary. Must be 18+ to enter. Terms and conditions apply.
+      </p>
+    </div>
   </div>
 
   <script>
-    const giveawayDate = new Date("March 20, 2024 00:00:00").getTime();
+    // Set target date (30 days from now for demo)
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 30);
+    
+    // Create animated stars
+    function createStars() {
+      const starsContainer = document.getElementById('stars');
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 3 + 's';
+        starsContainer.appendChild(star);
+      }
+    }
 
-    const x = setInterval(() => {
+    // Countdown timer
+    function updateCountdown() {
       const now = new Date().getTime();
-      const distance = giveawayDate - now;
+      const distance = targetDate.getTime() - now;
+
+      if (distance < 0) {
+        // Giveaway ended
+        document.getElementById('countdown-grid').innerHTML = `
+          <div class="giveaway-ended" style="grid-column: 1 / -1;">
+            🎉 Giveaway Has Ended! 🎉
+          </div>
+        `;
+        createConfetti();
+        return;
+      }
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) / (1000 * 60)
-      );
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      const countdownEl = document.getElementById("countdown");
+      document.getElementById('days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
 
-      if (distance >= 0) {
-        countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      } else {
-        clearInterval(x);
-        countdownEl.textContent = "🎉 Giveaway Over!";
+    // Create confetti effect
+    function createConfetti() {
+      const colors = ['#ff6b6b', '#ffd93d', '#6bcf7f', '#4dabf7', '#9775fa'];
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + '%';
+          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.animationDelay = Math.random() * 2 + 's';
+          document.body.appendChild(confetti);
+          
+          setTimeout(() => confetti.remove(), 3000);
+        }, i * 100);
       }
-    }, 1000);
+    }
+
+    // Enter giveaway function
+    function enterGiveaway() {
+      alert('🎉 Thank you for entering! You\'ll be notified if you win. Good luck! 🍀');
+      
+      // Add some visual feedback
+      const button = event.target;
+      const originalText = button.innerHTML;
+      button.innerHTML = '<i class="fas fa-check"></i> Entered!';
+      button.style.background = 'linear-gradient(135deg, #6bcf7f, #51cf66)';
+      
+      setTimeout(() => {
+        button.innerHTML = originalText;
+        button.style.background = 'linear-gradient(135deg, #ff6b6b, #ffd93d)';
+      }, 2000);
+    }
+
+    // Initialize
+    createStars();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Add some interactive elements
+    document.addEventListener('mousemove', (e) => {
+      const phoneShowcase = document.querySelector('.phone-showcase');
+      const rect = phoneShowcase.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      const deltaX = (e.clientX - centerX) / 50;
+      const deltaY = (e.clientY - centerY) / 50;
+      
+      phoneShowcase.style.transform = `perspective(1000px) rotateY(${deltaX}deg) rotateX(${-deltaY}deg)`;
+    });
+
+    // Reset phone position when mouse leaves
+    document.addEventListener('mouseleave', () => {
+      const phoneShowcase = document.querySelector('.phone-showcase');
+      phoneShowcase.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+    });
   </script>
 </body>
 </html>
